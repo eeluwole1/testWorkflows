@@ -21,15 +21,18 @@ jobs:
           node-version: "20.x"
 
       - name: Create .env
+        working-directory: ./Capstone-Project
         run: |
           echo "FIREBASE_PROJECT_ID=${{ secrets.FIREBASE_PROJECT_ID }}" >> .env
           echo "FIREBASE_CLIENT_EMAIL=${{ secrets.FIREBASE_CLIENT_EMAIL }}" >> .env
           echo "FIREBASE_PRIVATE_KEY=${{ secrets.FIREBASE_PRIVATE_KEY }}" >> .env
 
       - name: Install dependencies
+        working-directory: ./Capstone-Project
         run: npm ci
 
       - name: Run ESLint
+        working-directory: ./Capstone-Project
         run: npm run lint
 
   test:
@@ -46,13 +49,16 @@ jobs:
           node-version: "20.x"
 
       - name: Create .env
+        working-directory: ./Capstone-Project
         run: |
           echo "FIREBASE_PROJECT_ID=${{ secrets.FIREBASE_PROJECT_ID }}" >> .env
           echo "FIREBASE_CLIENT_EMAIL=${{ secrets.FIREBASE_CLIENT_EMAIL }}" >> .env
           echo "FIREBASE_PRIVATE_KEY=${{ secrets.FIREBASE_PRIVATE_KEY }}" >> .env
 
       - name: Install dependencies
+        working-directory: ./Capstone-Project
         run: npm ci
 
       - name: Run Tests
+        working-directory: ./Capstone-Project
         run: npm test
